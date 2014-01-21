@@ -52,7 +52,7 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-    name='djangorestframework',
+    name='drf',
     version=version,
     url='http://django-rest-framework.org',
     download_url='http://pypi.python.org/pypi/djangorestframework/',
