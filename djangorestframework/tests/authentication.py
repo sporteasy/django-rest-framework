@@ -2,12 +2,11 @@ from django.conf.urls.defaults import patterns
 from django.contrib.auth.models import User
 from django.test import Client, TestCase
 
-from django.utils import simplejson as json
-
 from djangorestframework.views import View
 from djangorestframework import permissions
 
 import base64
+import json
 
 
 class MockView(View):

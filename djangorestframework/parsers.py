@@ -10,11 +10,11 @@ We need a method to be able to:
 2.) Determine the parsed content on a request for media types other than application/x-www-form-urlencoded
    and multipart/form-data.  (eg also handle multipart/json)
 """
+import json
 
 from django.http import QueryDict
 from django.http.multipartparser import MultiPartParser as DjangoMultiPartParser
 from django.http.multipartparser import MultiPartParserError
-from django.utils import simplejson as json
 from djangorestframework import status
 from djangorestframework.compat import yaml
 from djangorestframework.response import ErrorResponse

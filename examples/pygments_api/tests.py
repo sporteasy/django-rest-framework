@@ -1,11 +1,12 @@
+import json
+
 from django.test import TestCase
-from django.utils import simplejson as json
 
 from djangorestframework.compat import RequestFactory
 
 from pygments_api import views
-import tempfile, shutil
-
+import tempfile
+import shutil
 
 
 class TestPygmentsExample(TestCase):
@@ -14,13 +15,13 @@ class TestPygmentsExample(TestCase):
         self.factory = RequestFactory()
         self.temp_dir = tempfile.mkdtemp()
         views.HIGHLIGHTED_CODE_DIR = self.temp_dir
-        
+
     def tearDown(self):
         try:
             shutil.rmtree(self.temp_dir)
         except Exception:
             pass
-        
+
     def test_get_to_root(self):
         '''Just do a get on the base url'''
         request = self.factory.get('/pygments')
@@ -44,6 +45,6 @@ class TestPygmentsExample(TestCase):
         response = view(request)
         response_locations = json.loads(response.content)
         self.assertEquals(locations, response_locations)
-        
-        
+
+
 
