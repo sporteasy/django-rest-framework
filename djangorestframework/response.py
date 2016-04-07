@@ -4,8 +4,12 @@ views to return a certain HTTP response. Typically a response is *rendered*
 into a HTTP response depending on what renderers are set on your view and
 als depending on the accept header of the request.
 """
-
-from django.core.handlers.wsgi import STATUS_CODE_TEXT
+# https://docs.djangoproject.com/en/1.9/releases/1.9/#miscellaneous
+try:
+    from httplib import responses
+except ImportError:
+    from http.client import responses
+STATUS_CODE_TEXT = responses
 
 __all__ = ('Response', 'ErrorResponse')
 
